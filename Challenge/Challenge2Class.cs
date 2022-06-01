@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Challenge
 {
@@ -12,10 +13,26 @@ namespace Challenge
             public string LastName { get; set; }
             
             public int Age { get; set; }
+            
+            public override bool Equals(object obj)
+            {
+                if (obj is Person p)
+                {
+                    return this.Equals(p);
+                }
+                return false;
+            }
+
+            public bool Equals(Person obj)
+            {
+                return GetHashCode() == obj.GetHashCode();
+            }
 
             public override int GetHashCode()
             {
-                throw new NotImplementedException();
+                var firstC = FirstName.First();
+                var lastC = LastName.First();
+                return new {firstC, lastC}.GetHashCode();
             }
         }
 
@@ -27,7 +44,8 @@ namespace Challenge
         /// <returns>Total number of unique Initials among the people given</returns>
         public static int Challenge2(IEnumerable<Person> people)
         {
-            throw new NotImplementedException();
+            var hs = new HashSet<Person>(people);
+            return hs.Count;
         }
     }
 }

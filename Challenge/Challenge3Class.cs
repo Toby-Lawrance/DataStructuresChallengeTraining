@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Challenge
 {
@@ -19,7 +20,24 @@ namespace Challenge
         /// <returns>Nodes visited in the order of visitation</returns>
         public static IEnumerable<Node<int>> Challenge3(Node<int> root)
         {
-            throw new NotImplementedException();
+            var visited = new List<Node<int>>();
+
+            void DFS(Node<int> n)
+            {
+                visited.Add(n);
+
+                foreach (var nChild in n.Children)
+                {
+                    if (!visited.Contains(nChild))
+                    {
+                        DFS(nChild);
+                    }
+                }
+            }
+            
+            DFS(root);
+
+            return visited;
         }
     }
 }
