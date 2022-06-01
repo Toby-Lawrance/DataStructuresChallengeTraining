@@ -13,6 +13,12 @@ namespace Challenge
             
             public int Age { get; set; }
 
+
+            public override bool Equals(object obj)
+            {
+                throw new NotImplementedException();
+            }
+
             public override int GetHashCode()
             {
                 throw new NotImplementedException();
