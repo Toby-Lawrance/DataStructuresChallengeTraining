@@ -18,7 +18,7 @@ namespace Challenge
             {
                 if (obj is Person p)
                 {
-                    return this.Equals(p);
+                    return Equals(p);
                 }
                 return false;
             }
@@ -32,7 +32,7 @@ namespace Challenge
             {
                 var firstC = FirstName.First();
                 var lastC = LastName.First();
-                return new {firstC, lastC}.GetHashCode();
+                return HashCode.Combine(firstC,lastC);
             }
         }
 
