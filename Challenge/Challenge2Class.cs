@@ -28,12 +28,6 @@ namespace Challenge
                 return GetHashCode() == obj.GetHashCode();
             }
 
-
-            public override bool Equals(object obj)
-            {
-                throw new NotImplementedException();
-            }
-
             public override int GetHashCode()
             {
                 var firstC = FirstName.First();

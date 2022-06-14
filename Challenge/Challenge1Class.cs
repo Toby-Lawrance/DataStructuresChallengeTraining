@@ -14,7 +14,7 @@ namespace Challenge
         /// <returns>True if the parantheses are balanced. False otherwise</returns>
         public static bool Challenge1(string input)
         {
-            Stack<char> check = new Stack<char>();
+            var check = new Stack<char>();
             foreach (var c in input)
             {
                 switch (c)
