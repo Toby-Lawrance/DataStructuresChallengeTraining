@@ -17,6 +17,7 @@ namespace ChallengeTests
         [InlineData("<<>>(<>)[]",true)]
         [InlineData("<><><>)",false)]
         [InlineData("((<<[]>>)",false)]
+        [InlineData("([)]",false)]
         public void Validation(string input, bool expected)
         {
             Assert.Equal(expected,Challenge1Class.Challenge1(input));
